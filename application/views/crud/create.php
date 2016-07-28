@@ -1,3 +1,6 @@
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    
 
 
 <!-- <div class="row">
@@ -42,4 +45,7 @@
     </div>
 <?php echo form_close() ?>
   <!-- </form> -->
+</div>
+
+</div>
 </div>

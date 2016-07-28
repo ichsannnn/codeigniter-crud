@@ -40,12 +40,24 @@ class Crud extends CI_Controller {
 
 	public function getEdit($id)
 	{
-		echo $id;
+		$data['siswa'] = $this->siswa->editSiswa($id);
+
+		$this->load->view('templates/header');
+		$this->load->view('crud/edit', $data);
 	}
 
 	public function postEdit($id)
 	{
-		# code...
+		$this->form_validation->set_rules('nis', 'NIS', 'required');
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
+		$this->form_validation->set_rules('kelas', 'Kelas', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+			redirect('get-create');
+		} else {
+			$this->siswa->updateSiswa($id);
+			redirect('/');
+		}
 	}
 
 	public function getDelete($id)
